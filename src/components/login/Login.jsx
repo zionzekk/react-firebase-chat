@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+
 import "./login.css";
 const Login = () => {
   const [avatar, setAvatar] = useState({
@@ -11,11 +13,18 @@ const Login = () => {
       url: URL.createObjectURL(e.target.files[0]),
     });
   };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // toast.error("Invalid email or password");
+  };
+
   return (
     <div className="login">
       <div className="item">
         <h2>Welcome</h2>
-        <form action="">
+        <form onSubmit={handleLogin}>
           <input type="text" />
           <input
             type="password"
